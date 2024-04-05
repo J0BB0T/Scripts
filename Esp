@@ -14,7 +14,6 @@ local localPlayer = Players.LocalPlayer
 local container: {[Player]: RBXScriptConnection} = {}
 
 local function highlightSelection(target: Player)
-	if not table.Find(PlayerList, Player.Name) then return end
 	local char: Model = target.Character or target.CharacterAdded:Wait()
 	if container[target] then
 		container[target]:Disconnect()
