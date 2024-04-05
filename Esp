@@ -3,7 +3,6 @@
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
-local PlayerList = game.Players:GetPlayers()
 
 local SELECTION_NAME: string = "RainbowHighlight"
 local HIGHLIGHT_ENABLED: boolean = true
@@ -13,7 +12,7 @@ local MAX_SPEED: number = 5
 local localPlayer = Players.LocalPlayer
 local container: {[Player]: RBXScriptConnection} = {}
 
-local function highlightSelection(target: Player)
+local function highlightSelection(target: Player)	
 	local char: Model = target.Character or target.CharacterAdded:Wait()
 	if container[target] then
 		container[target]:Disconnect()
