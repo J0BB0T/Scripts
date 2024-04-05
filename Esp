@@ -27,7 +27,7 @@ local function highlightSelection(target: Player)
 	container[target] = RunService.Heartbeat:Connect(function()
 		newHighlight.Enabled = HIGHLIGHT_ENABLED
 
-		if HIGHLIGHT_ENABLED then
+		if HIGHLIGHT_ENABLED and table.Find(game.Players:GetPlayers(), target.Name) then
 			local modularTick = os.clock() % MAX_SPEED
 			local totalHue = modularTick / MAX_SPEED
 
