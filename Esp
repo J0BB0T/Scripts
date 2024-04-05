@@ -3,6 +3,7 @@
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
+local PlayerList = game.Players:GetChildren()
 
 local SELECTION_NAME: string = "RainbowHighlight"
 local HIGHLIGHT_ENABLED: boolean = true
@@ -12,7 +13,8 @@ local MAX_SPEED: number = 5
 local localPlayer = Players.LocalPlayer
 local container: {[Player]: RBXScriptConnection} = {}
 
-local function highlightSelection(target: Player)	
+local function highlightSelection(target: Player)
+	if not table.Find(PlayerList, target.Name) then return end
 	local char: Model = target.Character or target.CharacterAdded:Wait()
 	if container[target] then
 		container[target]:Disconnect()
@@ -27,7 +29,7 @@ local function highlightSelection(target: Player)
 	container[target] = RunService.Heartbeat:Connect(function()
 		newHighlight.Enabled = HIGHLIGHT_ENABLED
 
-		if HIGHLIGHT_ENABLED and table.Find(game.Players:GetPlayers(), target.Name) then
+		if HIGHLIGHT_ENABLED then
 			local modularTick = os.clock() % MAX_SPEED
 			local totalHue = modularTick / MAX_SPEED
 
