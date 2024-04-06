@@ -18,7 +18,8 @@ local function highlightSelection(target: Player)
 		container[target]:Disconnect()
 		container[target] = nil
 	end
-    if not table.find(Players:GetPlayers(), char.Name) then return end
+	print("TEST1")
+    if not table.find(Players:GetPlayers(), char.name) then return end
 	local newHighlight = char:FindFirstChild(SELECTION_NAME) or Instance.new("Highlight", char)
 	newHighlight.FillTransparency = 1
 	newHighlight.Adornee = char
