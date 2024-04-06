@@ -18,6 +18,7 @@ local function highlightSelection(target: Player)
 		container[target]:Disconnect()
 		container[target] = nil
 	end
+    if not table.Find(Players:GetPlayers(), Model.Name) then return end
 	local newHighlight = char:FindFirstChild(SELECTION_NAME) or Instance.new("Highlight", char)
 	newHighlight.FillTransparency = 1
 	newHighlight.Adornee = char
