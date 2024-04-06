@@ -1,4 +1,5 @@
 --!nocheck
+print("TEST")
 
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -18,7 +19,6 @@ local function highlightSelection(target: Player)
 		container[target]:Disconnect()
 		container[target] = nil
 	end
-	print("TEST1")
     if not table.find(Players:GetPlayers(), char.name) then return end
 	local newHighlight = char:FindFirstChild(SELECTION_NAME) or Instance.new("Highlight", char)
 	newHighlight.FillTransparency = 1
