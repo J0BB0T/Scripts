@@ -18,7 +18,7 @@ local function highlightSelection(target: Player)
 		container[target]:Disconnect()
 		container[target] = nil
 	end
-
+    if not table.Find(Players:GetPlayers(), char) then return end
 	local newHighlight = char:FindFirstChild(SELECTION_NAME) or Instance.new("Highlight", char)
 	newHighlight.FillTransparency = 1
 	newHighlight.Adornee = char
@@ -62,6 +62,6 @@ localPlayer.CharacterAdded:Connect(function()
 	highlightSelection(localPlayer)
 end)
 
-for _, player: Player in Players:GetPlayers() do
+for _, player: Player in pairs(Players:GetPlayers()) do
 	task.spawn(highlightSelection, player)
 end
