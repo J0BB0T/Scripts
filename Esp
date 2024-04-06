@@ -56,6 +56,9 @@ Players.PlayerAdded:Connect(function(player)
 	player.CharacterAdded:Connect(function()
 		highlightSelection(player)
 	end)
+	for _, player: Player in pairs(Players:GetPlayers()) do
+		task.spawn(highlightSelection, player)
+	end
 end)
 
 Players.PlayerRemoving:Connect(function(player)
@@ -69,7 +72,6 @@ highlightSelection(localPlayer)
 localPlayer.CharacterAdded:Connect(function()
 	highlightSelection(localPlayer)
 end)
-
 for _, player: Player in pairs(Players:GetPlayers()) do
 	task.spawn(highlightSelection, player)
 end
