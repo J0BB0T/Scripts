@@ -7,7 +7,7 @@ local Players = game:GetService("Players")
 local SELECTION_NAME: string = "RainbowHighlight"
 local HIGHLIGHT_ENABLED: boolean = true
 local KEYBIND: Enum.KeyCode = Enum.KeyCode.Quote
-local MAX_SPEED: number = 5
+local MAX_SPEED: number = 1
 
 local localPlayer = Players.LocalPlayer
 local container: {[Player]: RBXScriptConnection} = {}
