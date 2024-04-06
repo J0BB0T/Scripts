@@ -44,6 +44,9 @@ UserInputService.InputBegan:Connect(function(input, gp)
 	if input.KeyCode == KEYBIND then
 		HIGHLIGHT_ENABLED = not HIGHLIGHT_ENABLED
 	end
+	for _, player: Player in pairs(Players:GetPlayers()) do
+		task.spawn(highlightSelection, player)
+	end
 end)
 
 Players.PlayerAdded:Connect(function(player)
