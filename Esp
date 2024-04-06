@@ -14,18 +14,11 @@ local localPlayer = Players.LocalPlayer
 local container: {[Player]: RBXScriptConnection} = {}
 
 local function highlightSelection(target: Player)
-	for i, v in pairs(workspace:GetDescendants()) do
-		if v:IsA("Highlight") then
-			v:Destroy()
-		end
-	end
 	local char: Model = target.Character or target.CharacterAdded:Wait()
 	if container[target] then
 		container[target]:Disconnect()
 		container[target] = nil
 	end
-    print("-----------")
-    print(char)
     for i, v in PlayerList do
         if v == char and char:HasTag("IsPlayer") then
             char:AddTag("IsPlayer")
@@ -55,6 +48,11 @@ end)
 
 Players.PlayerAdded:Connect(function(player)
 	if not container[player] then highlightSelection(player) end
+	for i, v in pairs(workspace:GetDescendants()) do
+		if v:IsA("Highlight") then
+			v:Destroy()
+		end
+	end
 	player.CharacterAdded:Connect(function()
 		highlightSelection(player)
 	end)
