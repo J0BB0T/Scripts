@@ -20,7 +20,7 @@ local function highlightSelection(target: Player)
 		container[target] = nil
 	end
 	for l, b in workspace:GetDescendants() do
-		if l:IsA("Highlight") then
+		if b:IsA("Highlight") then
 			l:Destroy()
 		end
 	end
