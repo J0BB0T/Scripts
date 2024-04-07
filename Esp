@@ -1,5 +1,11 @@
 --!nocheck
-
+for l, b in workspace:GetChildren() do
+    for ll, bb in b:GetChildren() do
+        if bb:IsA("Highlight") then
+            bb:Destroy()
+        end
+    end
+end
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
@@ -18,11 +24,6 @@ local function highlightSelection(target: Player)
 	if container[target] then
 		container[target]:Disconnect()
 		container[target] = nil
-	end
-	for l, b in workspace:GetDescendants() do
-		if b:IsA("Highlight") then
-			b:Destroy()
-		end
 	end
     for i, v in PlayerList do
         if v == char and char:HasTag("IsPlayer") then
@@ -52,15 +53,24 @@ UserInputService.InputBegan:Connect(function(input, gp)
 	for _, player: Player in pairs(Players:GetPlayers()) do
 		task.spawn(highlightSelection, player)
 	end
+    for l, b in workspace:GetChildren() do
+        for ll, bb in b:GetChildren() do
+            if bb:IsA("Highlight") then
+                bb:Destroy()
+            end
+        end
+    end
 end)
 
 Players.PlayerAdded:Connect(function(player)
 	if not container[player] then highlightSelection(player) end
-	for i, v in pairs(workspace:GetDescendants()) do
-		if v:IsA("Highlight") then
-			v:Destroy()
-		end
-	end
+    for l, b in workspace:GetChildren() do
+        for ll, bb in b:GetChildren() do
+            if bb:IsA("Highlight") then
+                bb:Destroy()
+            end
+        end
+    end
 	player.CharacterAdded:Connect(function()
 		highlightSelection(player)
 	end)
