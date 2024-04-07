@@ -19,6 +19,11 @@ local function highlightSelection(target: Player)
 		container[target]:Disconnect()
 		container[target] = nil
 	end
+	for l, b in workspace:GetDescendants() do
+		if l:IsA("Highlight") then
+			l:Destroy()
+		end
+	end
     for i, v in PlayerList do
         if v == char and char:HasTag("IsPlayer") then
             char:AddTag("IsPlayer")
