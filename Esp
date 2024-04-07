@@ -1,1 +1,81 @@
-print("test")
+--!nocheck
+
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local PlayerList = game.Players:GetPlayers()
+
+local SELECTION_NAME: string = "RainbowHighlight"
+local HIGHLIGHT_ENABLED: boolean = true
+local KEYBIND: Enum.KeyCode = Enum.KeyCode.Quote
+local MAX_SPEED: number = 5
+
+local localPlayer = Players.LocalPlayer
+local container: {[Player]: RBXScriptConnection} = {}
+
+local function highlightSelection(target: Player)
+	local char: Model = target.Character or target.CharacterAdded:Wait()
+	if container[target] then
+		container[target]:Disconnect()
+		container[target] = nil
+	end
+    for i, v in PlayerList do
+        if v == char and not char:HasTag("IsPlayer") then
+            char:AddTag("IsPlayer")
+        end
+    end
+    if char:HasTag("IsPlayer") then return end
+    local newHighlight = char:FindFirstChild(SELECTION_NAME) or Instance.new("Highlight", char)
+    newHighlight.FillTransparency = 1
+    newHighlight.Adornee = char
+    newHighlight.Name = SELECTION_NAME
+    container[target] = RunService.Heartbeat:Connect(function()
+	    newHighlight.Enabled = HIGHLIGHT_ENABLED
+	    if HIGHLIGHT_ENABLED then
+	    	local modularTick = os.clock() % MAX_SPEED
+	        local totalHue = modularTick / MAX_SPEED
+	    	newHighlight.OutlineColor = Color3.fromHSV(totalHue, 1, 1)
+        end
+	end)
+end
+UserInputService.InputBegan:Connect(function(input, gp)
+	if gp then return end
+	if input.KeyCode == KEYBIND then
+		HIGHLIGHT_ENABLED = not HIGHLIGHT_ENABLED
+	end
+    for i, v in pairs(workspace:GetDescendants()) do
+		if v:IsA("Highlight") then
+			v:Destroy()
+		end
+	end
+	for _, player: Player in pairs(Players:GetPlayers()) do
+		task.spawn(highlightSelection, player)
+	end
+end)
+
+Players.PlayerAdded:Connect(function(player)
+	if not container[player] then highlightSelection(player) end
+	for i, v in pairs(workspace:GetDescendants()) do
+		if v:IsA("Highlight") then
+			v:Destroy()
+		end
+	end
+    for _, pLayer: Player in pairs(Players:GetPlayers()) do
+        task.spawn(highlightSelection, pLayer)
+    end
+	player.CharacterAdded:Connect(function()
+        task.spawn(highlightSelection, player)
+	end)
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+	if container[player] then
+		container[player]:Disconnect()
+		container[player] = nil
+	end
+end)
+
+highlightSelection(localPlayer)
+localPlayer.CharacterAdded:Connect(function()
+	highlightSelection(localPlayer)
+end)
