@@ -21,7 +21,7 @@ local function highlightSelection(target: Player)
 	end
 	for l, b in workspace:GetDescendants() do
 		if b:IsA("Highlight") then
-			l:Destroy()
+			b:Destroy()
 		end
 	end
     for i, v in PlayerList do
