@@ -42,7 +42,7 @@ UserInputService.InputBegan:Connect(function(input, gp)
 	if gp then return end
 	if input.KeyCode == KEYBIND then
 		HIGHLIGHT_ENABLED = not HIGHLIGHT_ENABLED
-        for i, v in pairs(workspace:GetDescendants()) do
+        	for i, v in pairs(workspace:GetDescendants()) do
 		    if v:IsA("Highlight") then
 			    v:Destroy()
 		    end
@@ -75,7 +75,6 @@ Players.PlayerRemoving:Connect(function(player)
 	end
 end)
 
-highlightSelection(localPlayer)
 localPlayer.CharacterAdded:Connect(function()
 	highlightSelection(localPlayer)
 end)
