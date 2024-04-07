@@ -19,7 +19,7 @@ local function highlightSelection(target: Player)
 		container[target]:Disconnect()
 		container[target] = nil
 	end
-	for l, b in workspace:GetDescendants() do
+	for l, b in workspace:GetChildren() do
 		if b:IsA("Highlight") then
 			b:Destroy()
 		end
