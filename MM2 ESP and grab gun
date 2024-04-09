@@ -318,19 +318,5 @@ function espFirst()
         end
     end
 end
- 
-function bringGun()
-    if wp:FindFirstChild("GunDrop") then
-        wp.GunDrop.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(2,0,0)
-    end
-end
- 
-
- 
-mouse.KeyDown:connect(function(keyDown)
-    if keyDown == "c" then
-        bringGun()
-    end
-end)
- 
+  
 espFirst()
