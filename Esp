@@ -1,12 +1,12 @@
 --!nocheck
-
+_G.HIGHLIGHTENABLED = true
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 local PlayerList = game.Players:GetPlayers()
 
 local SELECTION_NAME: string = "RainbowHighlight"
-local HIGHLIGHT_ENABLED: boolean = true
+local HIGHLIGHT_ENABLED = _G.HIGHLIGHTENABLED
 local KEYBIND: Enum.KeyCode = Enum.KeyCode.Quote
 local MAX_SPEED: number = 5
 
