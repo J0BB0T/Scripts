@@ -1,12 +1,12 @@
 --!nocheck
-_G.HIGHLIGHTENABLED = true
+
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 local PlayerList = game.Players:GetPlayers()
 
 local SELECTION_NAME: string = "RainbowHighlight"
-local HIGHLIGHT_ENABLED = _G.HIGHLIGHTENABLED
+local _G.HIGHLIGHTENABLEDHIGHLIGHT_ENABLED = true
 local KEYBIND: Enum.KeyCode = Enum.KeyCode.Quote
 local MAX_SPEED: number = 5
 
@@ -30,8 +30,8 @@ local function highlightSelection(target: Player)
     newHighlight.Adornee = char
     newHighlight.Name = SELECTION_NAME
     container[target] = RunService.Heartbeat:Connect(function()
-	    newHighlight.Enabled = HIGHLIGHT_ENABLED
-	    if HIGHLIGHT_ENABLED then
+	    newHighlight.Enabled = _G.HIGHLIGHTENABLED
+	    if _G.HIGHLIGHTENABLED then
 	    	local modularTick = os.clock() % MAX_SPEED
 	        local totalHue = modularTick / MAX_SPEED
 	    	newHighlight.OutlineColor = Color3.fromHSV(totalHue, 1, 1)
@@ -41,7 +41,7 @@ end
 UserInputService.InputBegan:Connect(function(input, gp)
 	if gp then return end
 	if input.KeyCode == KEYBIND then
-		HIGHLIGHT_ENABLED = not HIGHLIGHT_ENABLED
+		_G.HIGHLIGHTENABLED = not _G.HIGHLIGHTENABLED
         	for i, v in pairs(workspace:GetDescendants()) do
 		    if v:IsA("Highlight") then
 			    v:Destroy()
