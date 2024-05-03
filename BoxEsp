@@ -1,0 +1,99 @@
+local lplr = game:GetService("Players").LocalPlayer
+local Camera = game:GetService("Workspace").CurrentCamera
+local CurrentCamera = workspace.CurrentCamera
+local worldToViewportPoint = CurrentCamera.worldToViewportPoint
+
+local HeadOff = Vector3.new(0, 0.5, 0)
+local LegOff = Vector3.new(0, 3, 0)
+
+for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+    BoxOut = Drawing.new("Square")
+    BoxOut.Visible = false
+    BoxOut.Color = Color3.fromRGB(255, 255, 255)
+    BoxOut.Thicness = 3
+    BoxOut.Transparency = 1
+    BoxOut.Filled = false
+
+    local BoxIn = Drawing.new("Square")
+    BoxIn.Visible = false
+    BoxIn.Color = Color3.fromRGB(0, 0, 0)
+    BoxIn.Thicness = 1
+    BoxIn.Transparency = 1
+    BoxIn.Filled = false
+
+    function BoxEsp()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid").Health > 0 and v ~= lplr then
+                local Vector, OnScreen = Camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+                local RootPart = v.Character.HumanoidRootPart
+                local Head = v.Character.Head
+                local RootPos, RootVis = worldToViewportPoint(CurrentCamera, RootPart.Position)
+                local HeadPos = worldToViewportPoint(CurrentCamera, Head.Position + HeadOff)
+                local LegPos = worldToViewportPoint(CurrentCamera, RootPart.Position - LegOff)
+                if OnScreen then
+                    BoxOut.Size = Vector2.new(1000 / RootPos.Z, HeadPos.Y - LegPos.Y)
+                    BoxOut.Position = Vector2.new(RootPos.X - BoxOut.Size.X / 2, RootPos.Y - BoxOut.Size.Y / 2)
+                    BoxOut.Visible = true
+
+                    BoxIn.Size = Vector2.new(1000 / RootPos.Z, HeadPos.Y - LegPos.Y)
+                    BoxIn.Position = Vector2.new(RootPos.X - BoxIn.Size.X / 2, RootPos.Y - BoxIn.Size.Y / 2)
+                    BoxIn.Visible = true
+                else
+                    BoxOut.Visible = false
+                    BoxIn.Visible = false
+                end
+            else
+                BoxOut.Visible = false
+                BoxIn.Visible = false
+            end
+        end)
+    end
+    coroutine.wrap(BoxEsp)()
+end
+
+game:GetService("Players").PlayerAdded:Connect(function(v)
+    BoxOut = Drawing.new("Square")
+    BoxOut.Visible = false
+    BoxOut.Color = Color3.fromRGB(255, 255, 255)
+    BoxOut.Thicness = 3
+    BoxOut.Transparency = 1
+    BoxOut.Filled = false
+
+    local BoxIn = Drawing.new("Square")
+    BoxIn.Visible = false
+    BoxIn.Color = Color3.fromRGB(0, 0, 0)
+    BoxIn.Thicness = 1
+    BoxIn.Transparency = 1
+    BoxIn.Filled = false
+
+    function BoxEsp()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid").Health > 0 and v ~= lplr then
+                local Vector, OnScreen = Camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+                local RootPart = v.Character.HumanoidRootPart
+                local Head = v.Character.Head
+                local RootPos, RootVis = worldToViewportPoint(CurrentCamera, RootPart.Position)
+                local HeadPos = worldToViewportPoint(CurrentCamera, Head.Position + HeadOff)
+                local LegPos = worldToViewportPoint(CurrentCamera, RootPart.Position - LegOff)
+                if OnScreen then
+                    BoxOut.Size = Vector2.new(1000 / RootPos.Z, HeadPos.Y - LegPos.Y)
+                    BoxOut.Position = Vector2.new(RootPos.X - BoxOut.Size / 2, RootPos.Y - BoxOut.Size.Y / 2)
+                    BoxOut.Visible = true
+
+                    BoxIn.Size = Vector2.new(1000 / RootPos.Z, HeadPos.Y - LegPos.Y)
+                    BoxIn.Position = Vector2.new(RootPos.X - BoxIn.Size / 2, RootPos.Y - BoxIn.Size.Y / 2)
+                    BoxIn.Visible = true
+                else
+                    BoxOut.Visible = false
+                    BoxIn.Visible = false
+                end
+            else
+                BoxOut.Visible = false
+                BoxIn.Visible = false
+            end
+        end)
+    end
+    coroutine.wrap(BoxEsp)()
+end)
