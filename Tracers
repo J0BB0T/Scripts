@@ -1,5 +1,5 @@
 local lplr = game:GetService("Players").LocalPlayer
-local camera = game:GetService("Workspace").CurrentCamera
+local camera = game:GetService("Workspace").Camera.CurrentCamera
 local CurrentCamera = workspace.CurrentCamera
 local worldToViewportPoint = CurrentCamera.worldToViewportPoint
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
