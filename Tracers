@@ -2,7 +2,6 @@ local lplr = game:GetService("Players").LocalPlayer
 local camera = game:GetService("Workspace").CurrentCamera
 local CurrentCamera = workspace.CurrentCamera
 local worldToViewportPoint = CurrentCamera.worldToViewportPoint
-if _G.TeamCheck = nil then _G.TeamCheck = false end
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
     local Tracer = Drawing.new("Line")
     Tracer.Visible = false
@@ -18,7 +17,7 @@ for i, v in pairs(game:GetService("Players"):GetPlayers()) do
                     Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
                     Tracer.To = Vector2.new(Vector.X, Vector.Y)
 
-                    if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+                    if _G.TeamCheck and v.Team == lplr.Team then
                         Tracer.Visible = false
                     else
                         Tracer.Visible = true
@@ -48,7 +47,7 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
                     Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
                     Tracer.To = Vector2.new(Vector.X, Vector.Y)
 
-                    if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+                    if _G.TeamCheck and v.Team == lplr.Team then
                         Tracer.Visible = false
                     else
                         Tracer.Visible = true
