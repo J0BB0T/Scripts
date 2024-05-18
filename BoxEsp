@@ -23,6 +23,8 @@ for i, v in pairs(game:GetService("Players"):GetPlayers()) do
 
     function BoxEsp()
         game:GetService("RunService").RenderStepped:Connect(function()
+            BoxOut.Color = _G.Color
+            BoxIn.Color = _G.Color
             if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid").Health > 0 and v ~= lplr then
                 local Vector, OnScreen = Camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
 
