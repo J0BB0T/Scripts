@@ -11,6 +11,7 @@ for i, v in pairs(game:GetService("Players"):GetPlayers()) do
 
     function LineEsp()
         game:GetService("RunService").RenderStepped:Connect(function()
+            Tracer.Color = _G.Color
             if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 1 then
                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
                 if OnScreen then
@@ -43,6 +44,7 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
         game:GetService("RunService").RenderStepped:Connect(function()
             if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 1 then
                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+                Tracer.Color = _G.Color
                 if OnScreen then
                     Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
                     Tracer.To = Vector2.new(Vector.X, Vector.Y)
