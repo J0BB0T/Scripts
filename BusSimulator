@@ -1,0 +1,65 @@
+if game:GetService("Players").LocalPlayer:FindFirstChild("IsInVr") ~= nil then
+    game:GetService("Players").LocalPlayer.IsInVr:Destroy()
+end
+game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
+    if proc then return end
+    if inp.KeyCode == Enum.KeyCode.P then
+        game:GetService("ReplicatedStorage").Wipers:FireServer()
+    end
+end)
+game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
+    if proc then return end
+    if inp.KeyCode == Enum.KeyCode.U then
+        game:GetService("ReplicatedStorage").Headlights:FireServer()
+    end
+end)
+local function Spark()
+  while task.wait(2.5) do
+    game:GetService("ReplicatedStorage").GetSparkler:FireServer(true)
+  end
+end
+_G.Seziure = false
+_G.LightSpammer = false
+game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
+    if proc then return end
+    if inp.KeyCode == Enum.KeyCode.M then
+        if not _G.LightSpammer then
+          _G.Seziure = false
+          _G.LightSpammer = true
+      else
+        _G.LightSpammer = false
+      end
+    end
+end)
+game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
+    if proc then return end
+    if inp.KeyCode == Enum.KeyCode.N then
+        if not _G.Seziure then
+          _G.Seziure = true
+          _G.LightSpammer = false
+      else
+        _G.Seziure = false
+      end
+    end
+end)
+local function Sez()
+  while task.wait(0.25) do
+    if _G.Seziure then
+      game:GetService("ReplicatedStorage").OpenDoor:FireServer()
+      game:GetService("ReplicatedStorage").Wipers:FireServer()
+      game:GetService("ReplicatedStorage").IndoorLights:FireServer()
+      game:GetService("ReplicatedStorage").Headlights:FireServer()
+    end
+  end
+end
+local function LS()
+  while task.wait(0.25) do
+    if _G.LightSpammer then
+      game:GetService("ReplicatedStorage").IndoorLights:FireServer()
+      game:GetService("ReplicatedStorage").Headlights:FireServer()
+    end
+  end
+end
+task.spawn(LS)
+task.spawn(Sez)
+task.spawn(Spark)
