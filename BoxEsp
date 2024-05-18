@@ -77,6 +77,8 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
                 local RootPos, RootVis = worldToViewportPoint(CurrentCamera, RootPart.Position)
                 local HeadPos = worldToViewportPoint(CurrentCamera, Head.Position + HeadOff)
                 local LegPos = worldToViewportPoint(CurrentCamera, RootPart.Position - LegOff)
+                BoxOut.Color = _G.Color
+                BoxIn.Color = _G.Color
                 if OnScreen then
                     BoxOut.Size = Vector2.new(1000 / RootPos.Z, HeadPos.Y - LegPos.Y)
                     BoxOut.Position = Vector2.new(RootPos.X - BoxOut.Size / 2, RootPos.Y - BoxOut.Size.Y / 2)
