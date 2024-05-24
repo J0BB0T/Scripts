@@ -1,7 +1,11 @@
+_G.ColorEnabled = false
 local lplr = game:GetService("Players").LocalPlayer
 local camera = game:GetService("Workspace").CurrentCamera
 local CurrentCamera = workspace.CurrentCamera
 local worldToViewportPoint = CurrentCamera.worldToViewportPoint
+if not _G.ColorEnabled then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Color"))()
+end
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
     local Tracer = Drawing.new("Line")
     Tracer.Visible = false
