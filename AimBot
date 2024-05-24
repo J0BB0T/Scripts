@@ -1,3 +1,4 @@
+_G.ColorEnabled = false
 local Camera = workspace.CurrentCamera
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -29,6 +30,9 @@ FOVCircle.Radius = _G.CircleRadius
 FOVCircle.Transparency = _G.CircleTransparency
 FOVCircle.NumSides = _G.CircleSides
 FOVCircle.Thickness = _G.CircleThickness
+if _G.ColorEnabled then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Color"))()
+end
 
 local function GetClosestPlayer()
 	local MaximumDistance = _G.CircleRadius
