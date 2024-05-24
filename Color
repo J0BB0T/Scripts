@@ -1,0 +1,7 @@
+local MAX_SPEED = 5
+RunService.RenderStepped:Connect(function()
+    _G.ColorEnabled = true
+    local modularTick = os.clock() % MAX_SPEED
+    local totalHue = modularTick / MAX_SPEED
+    _G.Color = Color3.fromHSV(totalHue, 1, 1)
+end)
