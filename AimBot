@@ -30,7 +30,7 @@ FOVCircle.Radius = _G.CircleRadius
 FOVCircle.Transparency = _G.CircleTransparency
 FOVCircle.NumSides = _G.CircleSides
 FOVCircle.Thickness = _G.CircleThickness
-if _G.ColorEnabled then
+if not _G.ColorEnabled then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Color"))()
 end
 
