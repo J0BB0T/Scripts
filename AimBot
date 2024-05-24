@@ -82,20 +82,6 @@ UserInputService.InputEnded:Connect(function(Input)
         Holding = false
     end
 end)
-local MAX_SPEED = 5
-RunService.RenderStepped:Connect(function()
-    local modularTick = os.clock() % MAX_SPEED
-    local totalHue = modularTick / MAX_SPEED
-    _G.Color = Color3.fromHSV(totalHue, 1, 1)
-    FOVCircle.Position = Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y - 20)
-    FOVCircle.Radius = _G.CircleRadius
-    FOVCircle.Filled = _G.CircleFilled
-    FOVCircle.Color = _G.Color
-    FOVCircle.Visible = _G.CircleVisible
-    FOVCircle.Radius = _G.CircleRadius
-    FOVCircle.Transparency = _G.CircleTransparency
-    FOVCircle.NumSides = _G.CircleSides
-    FOVCircle.Thickness = _G.CircleThickness
 
     if Holding == true and _G.AimbotEnabled == true then
         TweenService:Create(Camera, TweenInfo.new(_G.Sensitivity, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = CFrame.new(Camera.CFrame.Position, GetClosestPlayer().Character[_G.AimPart].Position)}):Play()
