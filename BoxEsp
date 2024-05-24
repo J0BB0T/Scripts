@@ -1,3 +1,4 @@
+_G.ColorEnabled = false
 local lplr = game:GetService("Players").LocalPlayer
 local Camera = game:GetService("Workspace").CurrentCamera
 local CurrentCamera = workspace.CurrentCamera
@@ -5,6 +6,9 @@ local worldToViewportPoint = CurrentCamera.worldToViewportPoint
 
 local HeadOff = Vector3.new(0, 0.5, 0)
 local LegOff = Vector3.new(0, 3, 0)
+if _G.ColorEnabled then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Color"))()
+end
 
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
     BoxOut = Drawing.new("Square")
