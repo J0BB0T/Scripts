@@ -80,7 +80,7 @@ local UICorner_17 = Instance.new("UICorner")
 --Properties:
 
 RaptureHub.Name = "RaptureHub"
-RaptureHub.Parent = game:GetService("CoreGui")
+RaptureHub.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 RaptureHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainFrame.Name = "MainFrame"
