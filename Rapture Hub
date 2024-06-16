@@ -82,8 +82,6 @@ local UICorner_17 = Instance.new("UICorner")
 RaptureHub.Name = "RaptureHub"
 RaptureHub.Parent = game:GetService("CoreGui")
 RaptureHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-RaptureHub.Active = true
-RaptureHub.Draggable = true
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = RaptureHub
