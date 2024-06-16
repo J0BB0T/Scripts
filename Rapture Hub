@@ -92,6 +92,8 @@ MainFrame.BorderSizePixel = 0
 MainFrame.ClipsDescendants = true
 MainFrame.Position = UDim2.new(0.150959864, 0, 0.131268442, 0)
 MainFrame.Size = UDim2.new(0.698080301, 0, 0.737463117, 0)
+MainFrame.Active = true
+MainFrame.Draggable = true
 
 Tabs.Name = "Tabs"
 Tabs.Parent = MainFrame
