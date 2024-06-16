@@ -576,3 +576,9 @@ end)
 CustomAimbot.Activated:Connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/AimBot"))()
 end)
+game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
+	if proc then return end
+	if inp.KeyCode == Enum.KeyCode.P then
+		RaptureHub.Enabled = not RaptureHub.Enabled
+	end
+end
