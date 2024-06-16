@@ -1,0 +1,578 @@
+-- Gui to Lua
+-- Version: 3.2
+-- Variables:
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Menu = "About"
+local function notif(str,dur)
+	game:FindService("StarterGui"):SetCore("SendNotification", {
+		Title = "Rapture Hub",
+		Text = str,
+		Icon = "rbxassetid://17873368263",
+		Duration = dur or 3
+	})
+end
+
+task.wait(5)
+-- Instances:
+
+local RaptureHub = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Tabs = Instance.new("Frame")
+local Main = Instance.new("TextButton")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local About = Instance.new("TextButton")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local About_2 = Instance.new("Folder")
+local Username = Instance.new("TextLabel")
+local About_3 = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local Discord = Instance.new("TextButton")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local UICorner_2 = Instance.new("UICorner")
+local Version = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Logo = Instance.new("ImageLabel")
+local Name = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+local Main_2 = Instance.new("Folder")
+local Title = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local Scripts = Instance.new("Folder")
+local Yeet = Instance.new("TextButton")
+local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local UICorner_5 = Instance.new("UICorner")
+local OwlHub = Instance.new("TextButton")
+local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+local UICorner_6 = Instance.new("UICorner")
+local Dex = Instance.new("TextButton")
+local UITextSizeConstraint_7 = Instance.new("UITextSizeConstraint")
+local UICorner_7 = Instance.new("UICorner")
+local InfiniteYeild = Instance.new("TextButton")
+local UITextSizeConstraint_8 = Instance.new("UITextSizeConstraint")
+local UICorner_8 = Instance.new("UICorner")
+local Box = Instance.new("TextButton")
+local UITextSizeConstraint_9 = Instance.new("UITextSizeConstraint")
+local UICorner_9 = Instance.new("UICorner")
+local ChatSpy = Instance.new("TextButton")
+local UITextSizeConstraint_10 = Instance.new("UITextSizeConstraint")
+local UICorner_10 = Instance.new("UICorner")
+local RemoteSpy = Instance.new("TextButton")
+local UITextSizeConstraint_11 = Instance.new("UITextSizeConstraint")
+local UICorner_11 = Instance.new("UICorner")
+local UNC = Instance.new("TextButton")
+local UITextSizeConstraint_12 = Instance.new("UITextSizeConstraint")
+local UICorner_12 = Instance.new("UICorner")
+local Tracer = Instance.new("TextButton")
+local UITextSizeConstraint_13 = Instance.new("UITextSizeConstraint")
+local UICorner_13 = Instance.new("UICorner")
+local InfJump = Instance.new("TextButton")
+local UITextSizeConstraint_14 = Instance.new("UITextSizeConstraint")
+local UICorner_14 = Instance.new("UICorner")
+local SFling = Instance.new("TextButton")
+local UITextSizeConstraint_15 = Instance.new("UITextSizeConstraint")
+local UICorner_15 = Instance.new("UICorner")
+local CustomAimbot = Instance.new("TextButton")
+local UITextSizeConstraint_16 = Instance.new("UITextSizeConstraint")
+local UICorner_16 = Instance.new("UICorner")
+local UICorner_17 = Instance.new("UICorner")
+
+--Properties:
+
+RaptureHub.Name = "RaptureHub"
+RaptureHub.Parent = game:GetService("CoreGui")
+RaptureHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = RaptureHub
+MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+MainFrame.BackgroundTransparency = 0.025
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.ClipsDescendants = true
+MainFrame.Position = UDim2.new(0.150959864, 0, 0.131268442, 0)
+MainFrame.Size = UDim2.new(0.698080301, 0, 0.737463117, 0)
+
+Tabs.Name = "Tabs"
+Tabs.Parent = MainFrame
+Tabs.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tabs.BackgroundTransparency = 0.750
+Tabs.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Tabs.BorderSizePixel = 0
+Tabs.Position = UDim2.new(0, 0, 3.07636867e-08, 0)
+Tabs.Size = UDim2.new(0.128999993, 0, 1, 0)
+
+Main.Name = "Main"
+Main.Parent = Tabs
+Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.BackgroundTransparency = 0.200
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0, 0, 0.203629032, 0)
+Main.Size = UDim2.new(0.968992293, 0, 0.100000001, 0)
+Main.Font = Enum.Font.SourceSans
+Main.Text = "Main"
+Main.TextColor3 = Color3.fromRGB(178, 178, 178)
+Main.TextScaled = true
+Main.TextSize = 40.000
+Main.TextWrapped = true
+
+UITextSizeConstraint.Parent = Main
+UITextSizeConstraint.MaxTextSize = 35
+
+About.Name = "About"
+About.Parent = Tabs
+About.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+About.BackgroundTransparency = 0.200
+About.BorderColor3 = Color3.fromRGB(0, 0, 0)
+About.BorderSizePixel = 0
+About.Position = UDim2.new(0, 0, 0.102822579, 0)
+About.Size = UDim2.new(0.968992293, 0, 0.100000001, 0)
+About.Font = Enum.Font.SourceSans
+About.Text = "About"
+About.TextColor3 = Color3.fromRGB(178, 178, 178)
+About.TextScaled = true
+About.TextSize = 35.000
+About.TextWrapped = true
+
+UITextSizeConstraint_2.Parent = About
+UITextSizeConstraint_2.MaxTextSize = 35
+
+About_2.Name = "About"
+About_2.Parent = MainFrame
+
+Username.Name = "Username"
+Username.Parent = About_2
+Username.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Username.BackgroundTransparency = 1.000
+Username.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Username.BorderSizePixel = 0
+Username.Position = UDim2.new(0.718146801, 0, 0, 0)
+Username.Size = UDim2.new(0.281853139, 0, 0.110999994, 0)
+Username.Font = Enum.Font.SourceSans
+Username.Text = "Username Here"
+Username.TextColor3 = Color3.fromRGB(178, 178, 178)
+Username.TextScaled = true
+Username.TextSize = 14.000
+Username.TextWrapped = true
+Username.TextXAlignment = Enum.TextXAlignment.Right
+
+About_3.Name = "About"
+About_3.Parent = About_2
+About_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+About_3.BackgroundTransparency = 0.750
+About_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+About_3.BorderSizePixel = 0
+About_3.Position = UDim2.new(0.21750322, 0, 0.110887058, 0)
+About_3.Size = UDim2.new(0.628056645, 0, 0.32661289, 0)
+About_3.Font = Enum.Font.SourceSans
+About_3.Text = "Rapture made by Mrshadowiser and Fin"
+About_3.TextColor3 = Color3.fromRGB(178, 178, 178)
+About_3.TextSize = 50.000
+About_3.TextWrapped = true
+
+UICorner.Parent = About_3
+
+Discord.Name = "Discord"
+Discord.Parent = About_2
+Discord.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Discord.BackgroundTransparency = 0.500
+Discord.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Discord.BorderSizePixel = 0
+Discord.Position = UDim2.new(0.419562429, 0, 0.693548322, 0)
+Discord.Size = UDim2.new(0.222651228, 0, 0.133064508, 0)
+Discord.Font = Enum.Font.SourceSans
+Discord.Text = "Join The Discord"
+Discord.TextColor3 = Color3.fromRGB(178, 178, 178)
+Discord.TextSize = 50.000
+Discord.TextWrapped = true
+
+UITextSizeConstraint_3.Parent = Discord
+UITextSizeConstraint_3.MaxTextSize = 31
+
+UICorner_2.CornerRadius = UDim.new(0, 6)
+UICorner_2.Parent = Discord
+
+Version.Name = "Version"
+Version.Parent = About_2
+Version.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Version.BackgroundTransparency = 0.750
+Version.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Version.BorderSizePixel = 0
+Version.Position = UDim2.new(0.32046333, 0, 0.45161292, 0)
+Version.Size = UDim2.new(0.422136426, 0, 0.122983865, 0)
+Version.Font = Enum.Font.SourceSans
+Version.Text = "Version DEV-1.0"
+Version.TextColor3 = Color3.fromRGB(178, 178, 178)
+Version.TextSize = 50.000
+Version.TextWrapped = true
+
+UICorner_3.Parent = Version
+
+Logo.Name = "Logo"
+Logo.Parent = MainFrame
+Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo.BackgroundTransparency = 1.000
+Logo.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Logo.BorderSizePixel = 0
+Logo.Size = UDim2.new(0.125, 0, 0.101999998, 0)
+Logo.Image = "http://www.roblox.com/asset/?id=17873368263"
+Logo.ScaleType = Enum.ScaleType.Fit
+
+Name.Name = "Name"
+Name.Parent = MainFrame
+Name.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Name.BackgroundTransparency = 0.200
+Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name.BorderSizePixel = 0
+Name.Position = UDim2.new(0.87031281, 0, 0.897193491, 0)
+Name.Size = UDim2.new(0.125, 0, 0.100000001, 0)
+Name.Font = Enum.Font.SourceSans
+Name.Text = "Rapture"
+Name.TextColor3 = Color3.fromRGB(178, 178, 178)
+Name.TextScaled = true
+Name.TextSize = 35.000
+Name.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 128)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 128, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(219, 189, 0))}
+UIGradient.Parent = Name
+
+UITextSizeConstraint_4.Parent = Name
+UITextSizeConstraint_4.MaxTextSize = 35
+
+Main_2.Name = "Main"
+Main_2.Parent = MainFrame
+
+Title.Name = "Title"
+Title.Parent = Main_2
+Title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Title.BackgroundTransparency = 0.750
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.231660232, 0, -0.0141129335, 0)
+Title.Size = UDim2.new(0.610000014, 0, 0.128000006, 0)
+Title.Visible = false
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Rapture Script Hub"
+Title.TextColor3 = Color3.fromRGB(178, 178, 178)
+Title.TextSize = 50.000
+Title.TextWrapped = true
+
+UICorner_4.Parent = Title
+
+Scripts.Name = "Scripts"
+Scripts.Parent = Main_2
+
+Yeet.Name = "Yeet"
+Yeet.Parent = Scripts
+Yeet.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Yeet.BackgroundTransparency = 0.500
+Yeet.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Yeet.BorderSizePixel = 0
+Yeet.Position = UDim2.new(0.42956239, 0, 0.355548352, 0)
+Yeet.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+Yeet.Visible = false
+Yeet.Font = Enum.Font.SourceSans
+Yeet.Text = "FE Yeet GUI"
+Yeet.TextColor3 = Color3.fromRGB(178, 178, 178)
+Yeet.TextSize = 50.000
+Yeet.TextWrapped = true
+
+UITextSizeConstraint_5.Parent = Yeet
+UITextSizeConstraint_5.MaxTextSize = 31
+
+UICorner_5.CornerRadius = UDim.new(0, 6)
+UICorner_5.Parent = Yeet
+
+OwlHub.Name = "OwlHub"
+OwlHub.Parent = Scripts
+OwlHub.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OwlHub.BackgroundTransparency = 0.500
+OwlHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OwlHub.BorderSizePixel = 0
+OwlHub.Position = UDim2.new(0.194562376, 0, 0.66354835, 0)
+OwlHub.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+OwlHub.Visible = false
+OwlHub.Font = Enum.Font.SourceSans
+OwlHub.Text = "OwlHub"
+OwlHub.TextColor3 = Color3.fromRGB(178, 178, 178)
+OwlHub.TextSize = 50.000
+OwlHub.TextWrapped = true
+
+UITextSizeConstraint_6.Parent = OwlHub
+UITextSizeConstraint_6.MaxTextSize = 31
+
+UICorner_6.CornerRadius = UDim.new(0, 6)
+UICorner_6.Parent = OwlHub
+
+Dex.Name = "Dex"
+Dex.Parent = Scripts
+Dex.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Dex.BackgroundTransparency = 0.500
+Dex.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Dex.BorderSizePixel = 0
+Dex.Position = UDim2.new(0.194562376, 0, 0.355548352, 0)
+Dex.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+Dex.Visible = false
+Dex.Font = Enum.Font.SourceSans
+Dex.Text = "Dex Explorer"
+Dex.TextColor3 = Color3.fromRGB(178, 178, 178)
+Dex.TextSize = 50.000
+Dex.TextWrapped = true
+
+UITextSizeConstraint_7.Parent = Dex
+UITextSizeConstraint_7.MaxTextSize = 31
+
+UICorner_7.CornerRadius = UDim.new(0, 6)
+UICorner_7.Parent = Dex
+
+InfiniteYeild.Name = "InfiniteYeild"
+InfiniteYeild.Parent = Scripts
+InfiniteYeild.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+InfiniteYeild.BackgroundTransparency = 0.500
+InfiniteYeild.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfiniteYeild.BorderSizePixel = 0
+InfiniteYeild.Position = UDim2.new(0.194562376, 0, 0.201548338, 0)
+InfiniteYeild.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+InfiniteYeild.Visible = false
+InfiniteYeild.Font = Enum.Font.SourceSans
+InfiniteYeild.Text = "Infinite Yeild"
+InfiniteYeild.TextColor3 = Color3.fromRGB(178, 178, 178)
+InfiniteYeild.TextSize = 50.000
+InfiniteYeild.TextWrapped = true
+
+UITextSizeConstraint_8.Parent = InfiniteYeild
+UITextSizeConstraint_8.MaxTextSize = 31
+
+UICorner_8.CornerRadius = UDim.new(0, 6)
+UICorner_8.Parent = InfiniteYeild
+
+Box.Name = "Box"
+Box.Parent = Scripts
+Box.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Box.BackgroundTransparency = 0.500
+Box.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Box.BorderSizePixel = 0
+Box.Position = UDim2.new(0.42956239, 0, 0.201548338, 0)
+Box.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+Box.Visible = false
+Box.Font = Enum.Font.SourceSans
+Box.Text = "Box Esp"
+Box.TextColor3 = Color3.fromRGB(178, 178, 178)
+Box.TextSize = 50.000
+Box.TextWrapped = true
+
+UITextSizeConstraint_9.Parent = Box
+UITextSizeConstraint_9.MaxTextSize = 31
+
+UICorner_9.CornerRadius = UDim.new(0, 6)
+UICorner_9.Parent = Box
+
+ChatSpy.Name = "ChatSpy"
+ChatSpy.Parent = Scripts
+ChatSpy.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ChatSpy.BackgroundTransparency = 0.500
+ChatSpy.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ChatSpy.BorderSizePixel = 0
+ChatSpy.Position = UDim2.new(0.42956239, 0, 0.66354835, 0)
+ChatSpy.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+ChatSpy.Visible = false
+ChatSpy.Font = Enum.Font.SourceSans
+ChatSpy.Text = "Chat Spy"
+ChatSpy.TextColor3 = Color3.fromRGB(178, 178, 178)
+ChatSpy.TextSize = 50.000
+ChatSpy.TextWrapped = true
+
+UITextSizeConstraint_10.Parent = ChatSpy
+UITextSizeConstraint_10.MaxTextSize = 31
+
+UICorner_10.CornerRadius = UDim.new(0, 6)
+UICorner_10.Parent = ChatSpy
+
+RemoteSpy.Name = "RemoteSpy"
+RemoteSpy.Parent = Scripts
+RemoteSpy.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RemoteSpy.BackgroundTransparency = 0.500
+RemoteSpy.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RemoteSpy.BorderSizePixel = 0
+RemoteSpy.Position = UDim2.new(0.194562376, 0, 0.509548366, 0)
+RemoteSpy.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+RemoteSpy.Visible = false
+RemoteSpy.Font = Enum.Font.SourceSans
+RemoteSpy.Text = "Remote Spy"
+RemoteSpy.TextColor3 = Color3.fromRGB(178, 178, 178)
+RemoteSpy.TextSize = 50.000
+RemoteSpy.TextWrapped = true
+
+UITextSizeConstraint_11.Parent = RemoteSpy
+UITextSizeConstraint_11.MaxTextSize = 31
+
+UICorner_11.CornerRadius = UDim.new(0, 6)
+UICorner_11.Parent = RemoteSpy
+
+UNC.Name = "UNC"
+UNC.Parent = Scripts
+UNC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UNC.BackgroundTransparency = 0.500
+UNC.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UNC.BorderSizePixel = 0
+UNC.Position = UDim2.new(0.42956239, 0, 0.509548366, 0)
+UNC.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+UNC.Visible = false
+UNC.Font = Enum.Font.SourceSans
+UNC.Text = "UNC Test"
+UNC.TextColor3 = Color3.fromRGB(178, 178, 178)
+UNC.TextSize = 50.000
+UNC.TextWrapped = true
+
+UITextSizeConstraint_12.Parent = UNC
+UITextSizeConstraint_12.MaxTextSize = 31
+
+UICorner_12.CornerRadius = UDim.new(0, 6)
+UICorner_12.Parent = UNC
+
+Tracer.Name = "Tracer"
+Tracer.Parent = Scripts
+Tracer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tracer.BackgroundTransparency = 0.500
+Tracer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Tracer.BorderSizePixel = 0
+Tracer.Position = UDim2.new(0.662062407, 0, 0.201548338, 0)
+Tracer.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+Tracer.Visible = false
+Tracer.Font = Enum.Font.SourceSans
+Tracer.Text = "Tracer ESP"
+Tracer.TextColor3 = Color3.fromRGB(178, 178, 178)
+Tracer.TextSize = 50.000
+Tracer.TextWrapped = true
+
+UITextSizeConstraint_13.Parent = Tracer
+UITextSizeConstraint_13.MaxTextSize = 31
+
+UICorner_13.CornerRadius = UDim.new(0, 6)
+UICorner_13.Parent = Tracer
+
+InfJump.Name = "InfJump"
+InfJump.Parent = Scripts
+InfJump.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+InfJump.BackgroundTransparency = 0.500
+InfJump.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfJump.BorderSizePixel = 0
+InfJump.Position = UDim2.new(0.662062407, 0, 0.66354835, 0)
+InfJump.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+InfJump.Visible = false
+InfJump.Font = Enum.Font.SourceSans
+InfJump.Text = "Infinite Jump"
+InfJump.TextColor3 = Color3.fromRGB(178, 178, 178)
+InfJump.TextSize = 50.000
+InfJump.TextWrapped = true
+
+UITextSizeConstraint_14.Parent = InfJump
+UITextSizeConstraint_14.MaxTextSize = 31
+
+UICorner_14.CornerRadius = UDim.new(0, 6)
+UICorner_14.Parent = InfJump
+
+SFling.Name = "SFling"
+SFling.Parent = Scripts
+SFling.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SFling.BackgroundTransparency = 0.500
+SFling.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SFling.BorderSizePixel = 0
+SFling.Position = UDim2.new(0.662062407, 0, 0.509548366, 0)
+SFling.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+SFling.Visible = false
+SFling.Font = Enum.Font.SourceSans
+SFling.Text = "Silent Fling"
+SFling.TextColor3 = Color3.fromRGB(178, 178, 178)
+SFling.TextSize = 50.000
+SFling.TextWrapped = true
+
+UITextSizeConstraint_15.Parent = SFling
+UITextSizeConstraint_15.MaxTextSize = 31
+
+UICorner_15.CornerRadius = UDim.new(0, 6)
+UICorner_15.Parent = SFling
+
+CustomAimbot.Name = "CustomAimbot"
+CustomAimbot.Parent = Scripts
+CustomAimbot.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CustomAimbot.BackgroundTransparency = 0.500
+CustomAimbot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CustomAimbot.BorderSizePixel = 0
+CustomAimbot.Position = UDim2.new(0.662062407, 0, 0.355548352, 0)
+CustomAimbot.Size = UDim2.new(0.216250002, 0, 0.131999999, 0)
+CustomAimbot.Visible = false
+CustomAimbot.Font = Enum.Font.SourceSans
+CustomAimbot.Text = "Custom Aimbot"
+CustomAimbot.TextColor3 = Color3.fromRGB(178, 178, 178)
+CustomAimbot.TextSize = 50.000
+CustomAimbot.TextWrapped = true
+
+UITextSizeConstraint_16.Parent = CustomAimbot
+UITextSizeConstraint_16.MaxTextSize = 31
+
+UICorner_16.CornerRadius = UDim.new(0, 6)
+UICorner_16.Parent = CustomAimbot
+
+UICorner_17.CornerRadius = UDim.new(0, 4)
+UICorner_17.Parent = MainFrame
+-- Scripts
+Username.Text = LocalPlayer.Name
+notif("Rapture Hub Loaded", 5)
+About.Activated:Connect(function()
+	if Menu ~= "About" then
+		Menu = "About"
+		for i, v in Scripts:GetChildren() do v.Visible = false end
+		Title.Visible = false
+		for i, v in About_2:GetChildren() do v.Visible = true end
+	end
+end)
+Main.Activated:Connect(function()
+	if Menu ~= "Main" then
+		Menu = "Main"
+		for i, v in Scripts:GetChildren() do v.Visible = true end
+		Title.Visible = true
+		for i, v in About_2:GetChildren() do v.Visible = false end
+	end
+end)
+Discord.Activated:Connect(function()
+	SetClipboard("https://discord.gg/DSh8mvMMs3")
+end)
+InfiniteYeild.Activated:Connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+InfJump.Activated:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/WweihvrM"))()
+end)
+ChatSpy.Activated:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Chat%20Spy"))()
+end)
+Dex.Activated:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+end)
+Tracer.Activated:Connect(function()
+	_G.TeamCheck = true
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Tracers"))()
+end)
+Box.Activated:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/BoxEsp"))()
+end)
+OwlHub.Activated:Connect(function()
+	loadstring(game:HttpGet("https://scriptblox.com/raw/Owl-Hub_1004"))()
+end)
+RemoteSpy.Activated:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+end)
+UNC.Activated:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/UNC%20test"))()
+end)
+SFling.Activated:Connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'),true))()
+end)
+Yeet.Activated:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Yeet-gui-trollface-edition"))()
+end)
+CustomAimbot.Activated:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/AimBot"))()
+end)
