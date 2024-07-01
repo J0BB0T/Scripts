@@ -1,4 +1,10 @@
-_G.ColorEnabled = false
+local MAX_SPEED = 5
+local Color = nil
+RunService.RenderStepped:Connect(function()
+    local modularTick = os.clock() % MAX_SPEED
+    local totalHue = modularTick / MAX_SPEED
+	Color = Color3.fromHSV(totalHue, 1, 1)
+end)
 local lplr = game:GetService("Players").LocalPlayer
 local Camera = game:GetService("Workspace").CurrentCamera
 local CurrentCamera = workspace.CurrentCamera
@@ -6,9 +12,6 @@ local worldToViewportPoint = CurrentCamera.worldToViewportPoint
 
 local HeadOff = Vector3.new(0, 0.5, 0)
 local LegOff = Vector3.new(0, 3, 0)
-if not _G.ColorEnabled then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Color"))()
-end
 
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
     BoxOut = Drawing.new("Square")
