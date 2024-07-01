@@ -1,11 +1,15 @@
-_G.ColorEnabled = false
+local MAX_SPEED = 5
+local Color = nil
+RunService.RenderStepped:Connect(function()
+    local modularTick = os.clock() % MAX_SPEED
+    local totalHue = modularTick / MAX_SPEED
+	Color = Color3.fromHSV(totalHue, 1, 1)
+end)
 local lplr = game:GetService("Players").LocalPlayer
 local camera = game:GetService("Workspace").CurrentCamera
 local CurrentCamera = workspace.CurrentCamera
 local worldToViewportPoint = CurrentCamera.worldToViewportPoint
-if not _G.ColorEnabled then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/Color"))()
-end
+
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
     local Tracer = Drawing.new("Line")
     Tracer.Visible = false
@@ -15,7 +19,7 @@ for i, v in pairs(game:GetService("Players"):GetPlayers()) do
 
     function LineEsp()
         game:GetService("RunService").RenderStepped:Connect(function()
-            Tracer.Color = _G.Color
+            Tracer.Color = Color
             if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 1 then
                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
                 if OnScreen then
@@ -48,7 +52,7 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
         game:GetService("RunService").RenderStepped:Connect(function()
             if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 1 then
                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
-                Tracer.Color = _G.Color
+                Tracer.Color = Color
                 if OnScreen then
                     Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
                     Tracer.To = Vector2.new(Vector.X, Vector.Y)
