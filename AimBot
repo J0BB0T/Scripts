@@ -1,10 +1,3 @@
-local MAX_SPEED = 5
-local Color = nil
-RunService.RenderStepped:Connect(function()
-    local modularTick = os.clock() % MAX_SPEED
-    local totalHue = modularTick / MAX_SPEED
-	Color = Color3.fromHSV(totalHue, 1, 1)
-end)
 local Camera = workspace.CurrentCamera
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -12,6 +5,13 @@ local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local LocalPlayer = Players.LocalPlayer
 local Holding = false
+local MAX_SPEED = 5
+local Color = Color3.fromHSV(1, 1, 1)
+RunService.RenderStepped:Connect(function()
+    local modularTick = os.clock() % MAX_SPEED
+    local totalHue = modularTick / MAX_SPEED
+	Color = Color3.fromHSV(totalHue, 1, 1)
+end)
 
 _G.AimbotEnabled = true
 _G.TeamCheck = false -- If set to true then the script would only lock your aim at enemy team members.
@@ -19,12 +19,11 @@ _G.AimPart = "Head" -- Where the aimbot script would lock at.
 _G.Sensitivity = 0 -- How many seconds it takes for the aimbot script to officially lock onto the target's aimpart.
 
 _G.CircleSides = 64 -- How many sides the FOV circle would have.
-Color = Color3.fromHSV(0, 1, 1) -- (RGB) Color that the FOV circle would appear as.
 _G.CircleTransparency = 0.7 -- Transparency of the circle.
-_G.CircleRadius = 160 -- The radius of the circle / FOV.
+_G.CircleRadius = 150 -- The radius of the circle / FOV.
 _G.CircleFilled = false -- Determines whether or not the circle is filled.
 _G.CircleVisible = true -- Determines whether or not the circle is visible.
-_G.CircleThickness = 2 -- The thickness of the circle.
+_G.CircleThickness = 0 -- The thickness of the circle.
 
 local FOVCircle = Drawing.new("Circle")
 FOVCircle.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
@@ -89,6 +88,17 @@ UserInputService.InputEnded:Connect(function(Input)
         Holding = false
     end
 end)
+
+RunService.RenderStepped:Connect(function()
+    FOVCircle.Position = Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y)
+    FOVCircle.Radius = _G.CircleRadius
+    FOVCircle.Filled = _G.CircleFilled
+    Color
+    FOVCircle.Visible = _G.CircleVisible
+    FOVCircle.Radius = _G.CircleRadius
+    FOVCircle.Transparency = _G.CircleTransparency
+    FOVCircle.NumSides = _G.CircleSides
+    FOVCircle.Thickness = _G.CircleThickness
 
     if Holding == true and _G.AimbotEnabled == true then
         TweenService:Create(Camera, TweenInfo.new(_G.Sensitivity, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = CFrame.new(Camera.CFrame.Position, GetClosestPlayer().Character[_G.AimPart].Position)}):Play()
