@@ -1,16 +1,18 @@
-if game:GetService("Players").LocalPlayer:FindFirstChild("IsInVr") ~= nil then
+setclipboard(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/BusSimulator"))aif game:GetService("Players").LocalPlayer:FindFirstChild("IsInVr") ~= nil then
     game:GetService("Players").LocalPlayer.IsInVr:Destroy()
 end
 game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
     if proc then return end
     if inp.KeyCode == Enum.KeyCode.P then
         game:GetService("ReplicatedStorage").Wipers:FireServer()
+        print("Wipers Activated")
     end
 end)
 game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
     if proc then return end
     if inp.KeyCode == Enum.KeyCode.U then
         game:GetService("ReplicatedStorage").Headlights:FireServer()
+        print("Headlights Toggled")
     end
 end)
 local function Spark()
@@ -26,8 +28,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
         if not _G.LightSpammer then
           _G.Seziure = false
           _G.LightSpammer = true
+          print("LightSpammer On")
       else
         _G.LightSpammer = false
+        print("LightSpammer Off")
       end
     end
 end)
@@ -37,8 +41,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
         if not _G.Seziure then
           _G.Seziure = true
           _G.LightSpammer = false
+          print("Seziure On")
       else
         _G.Seziure = false
+        print("Seziure Off")
       end
     end
 end)
@@ -63,3 +69,5 @@ end
 task.spawn(LS)
 task.spawn(Sez)
 task.spawn(Spark)
+
+print("P for Wipers\nU for headlight\nM for light spammer\nN for seziure")
