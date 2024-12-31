@@ -1,4 +1,4 @@
-setclipboard(game:HttpGet("https://raw.githubusercontent.com/J0BB0T/Scripts/main/BusSimulator"))aif game:GetService("Players").LocalPlayer:FindFirstChild("IsInVr") ~= nil then
+if game:GetService("Players").LocalPlayer:FindFirstChild("IsInVr") ~= nil then
     game:GetService("Players").LocalPlayer.IsInVr:Destroy()
 end
 game:GetService("UserInputService").InputBegan:Connect(function(inp, proc)
@@ -70,4 +70,4 @@ task.spawn(LS)
 task.spawn(Sez)
 task.spawn(Spark)
 
-print("P for Wipers\nU for headlight\nM for light spammer\nN for seziure")
+print("\nP for Wipers\nU for headlight\nM for light spammer\nN for seziure")
