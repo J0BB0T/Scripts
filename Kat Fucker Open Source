@@ -284,57 +284,12 @@ v24.Parent = v23
 local function v180()
 	local v187 = Instance.new("LocalScript",v1)
 	local v188 = game:GetService("UserInputService")
-	function dragify(v189) dragToggle = nil
-		local v190 = 0 -0 
-		dragInput = nil
-		dragStart = nil
-		local v191 = nil
-		function updateInput(v194) local v195 = 1769 -(1749 + 20) 
-			local v196
-			local v197
-			while true do if (v195 == (1 + 0)) then
-					game:GetService("TweenService"):Create(v189,TweenInfo.new(1322.25 -(1249 + 73) ),{Position = v197}):Play()
-					break
-				end
-				if (v195 == (0 + 0)) then
-					v196 = v194.Position-dragStart 
-					v197 = UDim2.new(startPos.X.Scale,startPos.X.Offset + v196.X ,startPos.Y.Scale,startPos.Y.Offset + v196.Y )
-					v195 = 1146 -(466 + 679) 
-				end
-			end
-		end
-		v189.InputBegan:Connect(function(v198)
-			if (((v198.UserInputType == Enum.UserInputType.MouseButton1) or (v198.UserInputType == Enum.UserInputType.Touch)) and (v188:GetFocusedTextBox() == nil)) then
-				local v205 = 0 -0 
-				while true do
-					if ((0 -0) == v205) then
-						dragToggle = true
-						dragStart = v198.Position
-						v205 = 1901 -(106 + 1794) 
-					end
-					if (v205 == (1 + 0)) then
-						startPos = v189.Position
-						v198.Changed:Connect(function()
-							if (v198.UserInputState == Enum.UserInputState.End) then
-								dragToggle = false
-							end
-						end)
-						break
-					end
-				end
-			end
-		end)
-		v189.InputChaned:Connect(function(v199)
-			if ((v199.UserInputType == Enum.UserInputType.MouseMovement) or (v199.UserInputType == Enum.UserInputType.Touch)) then
-				dragInput = v199
-			end
-		end)
-		game:GetService("UserInputService").InputChanged:Connect(function(v200)
-			if ((v200 == dragInput) and dragToggle) then
+	game:GetService("UserInputService").InputChanged:Connect(function(v200)
+		if ((v200 == dragInput) and dragToggle) then
 				updateInput(v200)
-			end
-		end)
-	end
-	dragify(v187.Parent)
+		end
+	end)
+	v187.Parent.Active = true
+	v187.Parent.Draggable = true
 end
 coroutine.wrap(v180)()
