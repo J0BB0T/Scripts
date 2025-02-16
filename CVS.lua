@@ -51,7 +51,6 @@ pcall(function()
 place_Holder:FireServer(game.Players.LocalPlayer.Character.Humanoid,game.Players.LocalPlayer.Character.UpperTorso,-math.huge,nil,0,false)
 end)
 
-end)
 
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
     if v.Name == "InflictTarget" then
