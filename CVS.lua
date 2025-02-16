@@ -64,6 +64,5 @@ pcall(function()
 place_Holder:FireServer(game.Players.LocalPlayer.Character.Humanoid,game.Players.LocalPlayer.Character.UpperTorso,-math.huge,nil,0,false)
 end)
 
-end)
 local Aimbot = loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V3/main/src/Aimbot.lua"))()
 Aimbot.Load()
