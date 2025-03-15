@@ -11,6 +11,6 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
   ["Title"] = "Bags To Van",
   ["Text"] = "Press P To Activate",
   ["Duration"] = 5
-}
+})
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EchoVanta/Scripts/refs/heads/main/Notoriety/Main.luau"))();
