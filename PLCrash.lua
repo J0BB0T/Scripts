@@ -1,3 +1,4 @@
+local LocalPlayer = game:GetService("Players").LocalPlayer
 local Gun = function(args)
     workspace.Remote.ItemHandler:InvokeServer({ Position = LocalPlayer.Character.Head.Position, Parent = workspace.Prison_ITEMS.giver:FindFirstChild(args) or workspace.Prison_ITEMS.single:FindFirstChild(args) })
 end
